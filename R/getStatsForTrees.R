@@ -55,7 +55,7 @@ getStatsForTrees = function(trees, nodes.train, type = "binary", base_score = 0.
         rightG = tree[ID==right,G]
         
         tree[r,G:=leftG+rightG]
-        w=tree[r,-G/H]
+        w=tree[r,-G/H] # w=tree[r,-G/(H+lambda)]
         
         tree[r,weight:=w]
         tree[ID==left,previous_weight:=w]
